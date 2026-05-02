@@ -36,11 +36,17 @@ META_PATH = os.path.join(MODEL_DIR, "metadata.json")
 
 # ── Load metadata ─────────────────────────────────────────────────────────────
 if not os.path.exists(META_PATH):
-    raise RuntimeError(
-        "Models not found!\n"
-        "Run this command first:  python src/train.py\n"
-        "Then run:                python app.py"
+    print("Models not found — training now, please wait...")
+    import subprocess
+    result = subprocess.run(
+        ["python", "src/train.py"],
+        capture_output=True, text=True
     )
+    print(result.stdout)
+    if result.returncode != 0:
+        print(result.stderr)
+        raise RuntimeError(f"Training failed:\n{result.stderr}")
+    print("Training complete. Loading app...")
 
 with open(META_PATH) as f:
     META = json.load(f)
