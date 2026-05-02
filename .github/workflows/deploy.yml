@@ -1,0 +1,29 @@
+name: Deploy to Hugging Face Spaces
+
+on:
+  push:
+    branches:
+      - main   # runs every time you push to main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0   # fetch full history, not just latest commit
+
+      - name: Push to Hugging Face Spaces
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          git config --global user.email "deploy@github-actions.com"
+          git config --global user.name "GitHub Actions"
+
+          # Add Hugging Face as a remote using your token for authentication
+          git remote add huggingface https://abdulllah-66:$HF_TOKEN@huggingface.co/spaces/abdullah-66/employee-attrition-predictor
+
+          # Force push to Hugging Face
+          git push huggingface main --force
