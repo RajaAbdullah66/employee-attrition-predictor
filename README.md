@@ -1,3 +1,13 @@
+---
+title: Employee Attrition Predictor   # shown on HF Spaces card
+emoji: 🏢                              # icon on the card
+colorFrom: blue                        # card gradient start
+colorTo: indigo                        # card gradient end
+sdk: gradio                            # tells HF to use your Dockerfile
+app_port: 5000                         # must match Flask port in app.py
+pinned: false                          # whether to pin to top of profile
+license: mit
+---
 # 👔 Employee Attrition Prediction System
 
 > IBM HR Analytics Dataset · Classical ML · 6 Models · Gradio Interface
