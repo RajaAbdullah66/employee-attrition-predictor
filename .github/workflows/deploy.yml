@@ -23,7 +23,7 @@ jobs:
           git config --global user.name "GitHub Actions"
 
           # Add Hugging Face as a remote using your token for authentication
-          git remote add huggingface https://Abdulllah-66:$HF_TOKEN@huggingface.co/spaces/Abdullah-66/employee-attrition-predictor
+          git remote add huggingface https://Abdulllah-66:$HF_TOKEN@huggingface.co/spaces/Abdullah-66/Employee Attrition Predictor
 
           # Force push to Hugging Face
           git push huggingface main --force
