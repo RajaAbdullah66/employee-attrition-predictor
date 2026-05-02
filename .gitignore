@@ -24,4 +24,6 @@ models/*.joblib
 # Keep charts and metadata
 !models/metadata.json
 !models/*.png
-*.png
+model/
+
+data/*.csv
