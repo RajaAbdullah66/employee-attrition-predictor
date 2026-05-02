@@ -1,0 +1,26 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Large model files — keep .joblib out of git
+# (we will regenerate them on Hugging Face)
+models/*.joblib
+
+# Keep charts and metadata
+!models/metadata.json
+!models/*.png
